@@ -51,7 +51,7 @@ class Triangle {
     }
   }
 
-  render = () => {
+  render() {
     this.__update();
     this.ctx.lineWidth = 2;
     this.ctx.lineJoin = "miter";
@@ -79,18 +79,18 @@ class Scene {
       this.triangleSet[i] = new Triangle(this.ctx, 1.5, [realm, realm], realm);
   }
 
-  render = () => {
+  render() {
     this.ctx.clearRect(0, 0, this.cvs.width, this.cvs.height);
     this.triangleSet.forEach(triangle => triangle.render());
   }
 
-  run = () => {
+  run() {
     if (!this.timer) {
-      this.timer = setInterval(this.render, 25);
+      this.timer = setInterval(this.render.bind(this), 25);
     }
   }
 
-  stop = () => {
+  stop() {
     if (this.timer) {
       clearInterval(this.timer);
       this.timer = 0;
