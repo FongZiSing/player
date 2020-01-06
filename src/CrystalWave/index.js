@@ -60,7 +60,6 @@ class Triangle {
     this.ctx.moveTo(this.points[0][0], this.points[0][1]);
     this.ctx.lineTo(this.points[1][0], this.points[1][1]);
     this.ctx.lineTo(this.points[2][0], this.points[2][1]);
-    this.ctx.lineTo(this.points[0][0], this.points[0][1]);
     this.ctx.closePath();
     this.ctx.stroke();
     this.ctx.fillStyle = 'rgba(67, 67, 67, .2)';
@@ -99,6 +98,6 @@ class Scene {
 }
 
 const canvas = document.getElementById('background');
-canvas.width = canvas.height = Math.ceil(canvas.parentNode.firstElementChild.offsetWidth * 1.68421);
+canvas.width = canvas.height = Math.ceil(canvas.parentNode.lastElementChild.offsetWidth * 1.68421);
 const scene = new Scene(canvas);
 scene.run();
