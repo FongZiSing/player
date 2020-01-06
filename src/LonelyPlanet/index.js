@@ -2,8 +2,8 @@ const PI2 = 2 * Math.PI;
 class Circle {
   constructor(context, speed, pole, radius, range) {
     this.ctx = context;
-    this.pole = pole;
     this.speed = speed;
+    this.pole = pole;
     this.radius = radius;
     this.range = range;
     this.__restart();
@@ -60,7 +60,7 @@ class Scene {
     this.circleNum = Math.floor(pole / slit);
     const range = this.circleNum * slit;
     for (let i = 1; i < this.circleNum; ++i)
-      this.circleSet[i] = new Circle(this.ctx, 1, [pole, pole], [slit, slit * i], range);
+      this.circleSet.push(new Circle(this.ctx, 1, [pole, pole], [slit, slit * i], range));
   }
 
   render() {
