@@ -36,15 +36,15 @@ class Cricle {
     const cosθ = Math.cos(θ);
     const sinθ = Math.sin(θ);
     const h = this.radius * (4 * (1 - Math.cos(θ / 2))) / (3 * Math.sin(θ / 2));
-    const p1 = [this.radius, 0];
-    const p2 = [this.radius, h];
-    const p3 = [this.radius * cosθ + h * sinθ, this.radius * sinθ - h * cosθ];
+    const A = [this.radius, 0];
+    const B = [this.radius, h];
+    const C = [this.radius * cosθ + h * sinθ, this.radius * sinθ - h * cosθ];
     for (let i = 0, idx = 0; i < this.petal; ++i, idx += 3) {
       const cosNθ = Math.cos(i * θ + this.α);
       const sinNθ = Math.sin(i * θ + this.α);
-      this.data[idx] = this.__rotate(p1, cosNθ, sinNθ);
-      this.data[idx + 1] = this.__rotate(p2, cosNθ, sinNθ);
-      this.data[idx + 2] = this.__rotate(p3, cosNθ, sinNθ);
+      this.data[idx] = this.__rotate(A, cosNθ, sinNθ);
+      this.data[idx + 1] = this.__rotate(B, cosNθ, sinNθ);
+      this.data[idx + 2] = this.__rotate(C, cosNθ, sinNθ);
     }
     this.data.forEach((v, i) => { this.buffer[i] = [v[0] + this.pole[0], v[1] + this.pole[1]]; });
     this.buffer[this.buffer.length] = this.buffer[0];
