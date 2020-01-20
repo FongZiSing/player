@@ -62,7 +62,7 @@ class Cricle {
   }
 
   render() {
-    this.ctx.moveTo(this.buffer[0][0] + this.pole[0], this.buffer[0][1] + this.pole[1]);
+    this.ctx.moveTo(this.buffer[0][0], this.buffer[0][1]);
     this.ctx.beginPath();
     this.ctx.strokeStyle = 'blue';
     for (let i = 0, idx = 0; i < this.petal; ++i, idx += 3) {
